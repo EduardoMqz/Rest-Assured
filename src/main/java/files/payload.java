@@ -11,7 +11,7 @@ public class payload {
                 "    \"accuracy\": 50,\r\n" + //
                 "    \"name\": \"Frontierline park\",\r\n" + //
                 "    \"phone_number\": \"(+92)983 893 3837\",\r\n" + //
-                "    \"address\": \"36, side layout, cohen 16\",\r\n" + //
+                "    \"address\": \"39, side layout, cohen 19\",\r\n" + //
                 "    \"types\": [\r\n" + //
                 "        \"shoe park\",\r\n" + //
                 "        \"gundam shop\"\r\n" + //
@@ -21,10 +21,10 @@ public class payload {
                 "}";
     }
 
-    public static String updatePlace(String placeId){
+    public static String updatePlace(String placeId, String newAddress){
         return "{\r\n" + //
                         "    \"place_id\": \""+placeId+"\",\r\n" + //
-                        "    \"address\": \"69 Winter Walk, USA\",\r\n" + //
+                        "    \"address\": \""+newAddress+"\",\r\n" + //
                         "    \"key\": \"qaclick123\"\r\n" + //
                         "}";
     }
