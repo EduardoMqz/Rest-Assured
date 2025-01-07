@@ -30,28 +30,33 @@ public class payload {
     }
 
     public static String coursePrice(){
-        return "{\r\n" + //
-                        "\"dashboard\": {\r\n" + //
-                        "\"purchaseAmount\": 910,\r\n" + //
-                        "\"website\": \"rahulshettyacademy.com\"\r\n" + //
-                        "},\r\n" + //
-                        "\"courses\": [\r\n" + //
-                        "{\r\n" + //
-                        "\"title\": \"Selenium Python\",\r\n" + //
-                        "\"price\": 50,\r\n" + //
-                        "\"copies\": 6\r\n" + //
-                        "},\r\n" + //
-                        "{\r\n" + //
-                        "\"title\": \"Cypress\",\r\n" + //
-                        "\"price\": 40,\r\n" + //
-                        "\"copies\": 4\r\n" + //
-                        "},\r\n" + //
-                        "{\r\n" + //
-                        "\"title\": \"RPA\",\r\n" + //
-                        "\"price\": 45,\r\n" + //
-                        "\"copies\": 10\r\n" + //
-                        "}\r\n" + //
-                        "]\r\n" + //
+        return "{\n" + //
+                        "  \"dashboard\": {\n" + //
+                        "    \"purchaseAmount\": 1162,\n" + //
+                        "    \"website\": \"rahulshettyacademy.com\"\n" + //
+                        "  },\n" + //
+                        "  \"courses\": [\n" + //
+                        "    {\n" + //
+                        "      \"title\": \"Selenium Python\",\n" + //
+                        "      \"price\": 50,\n" + //
+                        "      \"copies\": 6\n" + //
+                        "    },\n" + //
+                        "    {\n" + //
+                        "      \"title\": \"Cypress\",\n" + //
+                        "      \"price\": 40,\n" + //
+                        "      \"copies\": 4\n" + //
+                        "    },\n" + //
+                        "    {\n" + //
+                        "      \"title\": \"RPA\",\n" + //
+                        "      \"price\": 45,\n" + //
+                        "      \"copies\": 10\n" + //
+                        "    },\n" + //
+                        "    {\n" + //
+                        "      \"title\": \"Appium\",\n" + //
+                        "      \"price\": 36,\n" + //
+                        "      \"copies\": 7\n" + //
+                        "    }\n" + //
+                        "  ]\n" + //
                         "}";
    }
 
