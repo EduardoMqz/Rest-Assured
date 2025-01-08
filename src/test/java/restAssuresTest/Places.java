@@ -3,13 +3,10 @@ package restAssuresTest;
 import static io.restassured.RestAssured.given;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import files.ReusableMethods;
-import files.payload;
 import io.restassured.RestAssured;
 
 public class Places {
@@ -28,5 +25,4 @@ public class Places {
           String placeId = ReusableMethods.rawToString(response, "place_id");
 
     }
-
 }
