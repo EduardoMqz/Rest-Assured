@@ -60,4 +60,13 @@ public class payload {
                         "}";
    }
 
+   public static String addBook(String isbn, String aisle){
+    return "{\r\n" + //
+                "\"name\":\"Learn Automation with Zeon\",\r\n" + //
+                "\"isbn\":\""+isbn+"\",\r\n" + //
+                "\"aisle\":\""+aisle+"\",\r\n" + //
+                "\"author\":\"John oil\"\r\n" + //
+                "}";
+   }
+
 }
