@@ -1,2 +1,4 @@
 src/main/resources/jiraAPI.json
 target/classes/jiraAPI.json
+src/main/resources/attachment.jpg
+target/classes/attachment.jpg

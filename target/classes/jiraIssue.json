@@ -1,0 +1,13 @@
+{
+    "fields": {
+       "project":
+       {
+          "key": "SCRUM"
+       },
+       "summary": "Widget not working",
+       "description": "Created through the jira's API",
+       "issuetype": {
+          "name": "Bug"
+       }
+   }
+}
