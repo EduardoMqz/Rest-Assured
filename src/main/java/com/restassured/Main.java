@@ -9,6 +9,7 @@ import files.payload;
 
 public class Main {
     public static void main(String[] args) {
+        ReusableMethods configReader = new ReusableMethods("");
         // Validate if Add Place is working as expected
         // given - All input details
         // when - Submit API, resource, HTTP method
@@ -17,7 +18,7 @@ public class Main {
         String response = addPlace();
 
         // obtain place_id from responses body
-        String placeId = ReusableMethods.rawToString(response, "place_id");// for parsing Json
+        String placeId = configReader.rawToString(response, "place_id");// for parsing Json
 
         // update place with new address
         String newAddress = "69 Winter Walk, USA";
@@ -26,7 +27,7 @@ public class Main {
         // Get place to validate if new address is present in response
         String getPlaceResponse = getPlace(placeId, newAddress);
 
-        String addressResponse = ReusableMethods.rawToString(getPlaceResponse, "address");
+        String addressResponse = configReader.rawToString(getPlaceResponse, "address");
         Assert.assertEquals(addressResponse, newAddress);
 
     }

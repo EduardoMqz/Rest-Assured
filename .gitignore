@@ -2,3 +2,5 @@ src/main/resources/jiraAPI.json
 target/classes/jiraAPI.json
 src/main/resources/attachment.jpg
 target/classes/attachment.jpg
+src/main/resources/oAuth2Api.json
+target/classes/oAuth2Api.json

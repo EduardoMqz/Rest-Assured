@@ -12,11 +12,12 @@ public class Library {
     @Test(dataProvider = "BooksData")
     public void addBook(String isbn, String aisle) {
         // Add book
+        ReusableMethods configReader = new ReusableMethods("");
         RestAssured.baseURI = "https://rahulshettyacademy.com";
         String response = given().header("Content-Type", "application/json").body(payload.addBook(isbn, aisle))
                 .when().post("Library/Addbook.php")
                 .then().assertThat().statusCode(200).extract().response().asString();
-        String responseId = ReusableMethods.rawToString(response, "ID");
+        String responseId = configReader.rawToString(response, "ID");
         System.out.println("ID book: " + responseId);
     }
 

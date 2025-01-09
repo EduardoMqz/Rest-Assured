@@ -14,6 +14,7 @@ public class Places {
     @Test
     public void addPlace() throws IOException{
         RestAssured.baseURI = "https://rahulshettyacademy.com/";
+        ReusableMethods configReader = new ReusableMethods("");
 
         String response = given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
         .body(new String (Files.readAllBytes(Paths.get("src\\main\\resources\\addPlace.json"))))
@@ -22,7 +23,7 @@ public class Places {
         .body("scope", equalTo("APP")).header("server", "Apache/2.4.52 (Ubuntu)").extract().response()
         .asString();
 
-          String placeId = ReusableMethods.rawToString(response, "place_id");
+          String placeId = configReader.rawToString(response, "place_id");
 
     }
 }

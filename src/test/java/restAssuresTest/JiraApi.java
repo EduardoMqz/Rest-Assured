@@ -15,22 +15,23 @@ public class JiraApi {
 
     @Test
     public void createIssue() throws IOException {
- 
-        RestAssured.baseURI = ReusableMethods.get("baseURL");
+        ReusableMethods configReader = new ReusableMethods("jiraApi");
+        RestAssured.baseURI = configReader.get("baseURL");
+        
 
         String createIssueResponse = given().header( "Content-Type", "application/json")
-        .header("Authorization", "Basic "+ReusableMethods.get("token64"))
+        .header("Authorization", "Basic "+configReader.get("token64"))
         .body(new String (Files.readAllBytes(Paths.get("src\\main\\resources\\jiraIssue.json")))).log().all()
-        .post(ReusableMethods.get("createIssue"))
+        .post(configReader.get("createIssue"))
         .then().log().all().assertThat().statusCode(201).extract().asString();
 
-        String idIssue = ReusableMethods.rawToString(createIssueResponse, "id");
+        String idIssue = configReader.rawToString(createIssueResponse, "id");
 
         //add attachment
         given().header("X-Atlassian-Token","no-check").pathParam("id", idIssue)
-        .header("Authorization", "Basic "+ReusableMethods.get("token64"))
+        .header("Authorization", "Basic "+configReader.get("token64"))
         .multiPart("file", new File("src\\main\\resources\\attachment.jpg")).log().all()
-        .post(ReusableMethods.get("addAttachment"))
+        .post(configReader.get("addAttachment"))
         .then().log().all().assertThat().statusCode(200);
     }
 }

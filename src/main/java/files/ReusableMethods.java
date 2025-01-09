@@ -12,20 +12,20 @@ public class ReusableMethods {
 
     private static Map<String, String> config;
 
-    static {
+    public ReusableMethods(String name){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            config = mapper.readValue(new File("src\\main\\resources\\jiraAPI.json"), Map.class);
+            config = mapper.readValue(new File("src\\main\\resources\\"+name+".json"), Map.class);
         } catch (IOException e) {
             throw new RuntimeException("Failed to load config", e);
         } 
     }
 
-    public static String get(String key) {
+    public String get(String key) {
         return config.get(key);
     }
     
-    public static String rawToString(String response, String stringToGet){
+    public String rawToString(String response, String stringToGet){
         JsonPath jsonPath = new JsonPath(response);
         String stringResponse = jsonPath.getString(stringToGet);
         return stringResponse;
