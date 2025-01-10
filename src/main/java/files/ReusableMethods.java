@@ -12,7 +12,14 @@ public class ReusableMethods {
 
     private static Map<String, String> config;
 
-    public ReusableMethods(String name){
+    public ReusableMethods (String jsonName){
+        loadConfig(jsonName);
+    }
+
+    public ReusableMethods (){
+    }
+
+    public void loadConfig(String name){
         ObjectMapper mapper = new ObjectMapper();
         try {
             config = mapper.readValue(new File("src\\main\\resources\\"+name+".json"), Map.class);

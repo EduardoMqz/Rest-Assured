@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import files.ReusableMethods;
 import io.restassured.RestAssured;
+import pojoClasses.GetCourse;
 
 public class Oauth2 {
 
@@ -25,12 +26,14 @@ public class Oauth2 {
         String accessToken = configReader.rawToString(response,"access_token");
 
         //getCourseDetails
-        response = given()
+        GetCourse getCourse = given()
         .queryParam("access_token", accessToken)
         .when().log().all()
-        .get(configReader.get("getCourseDetails")).asString();
+        .get(configReader.get("getCourseDetails")).as(GetCourse.class);
 
-        System.out.println(response);
+        System.out.println(getCourse.getLinkedIn());
+        System.out.println(getCourse.getInstructor());
+        System.out.println(getCourse.getCourses().getWebAutomation().get(0).getPrice());
 
 
     }
