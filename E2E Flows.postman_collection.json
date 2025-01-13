@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "5ec283b5-7d34-41ce-ac34-4100a9eff974",
+		"name": "E2E Flows",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28361658"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\": \"awalker@housereal.com\", \r\n    \"userPassword\": \"All3n.walk3r\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/api/ecom/auth/login",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"api",
+						"ecom",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddProduct",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg1OGM1MGUyYjU0NDNiMWYyMjA5ZDIiLCJ1c2VyRW1haWwiOiJhd2Fsa2VyQGhvdXNlcmVhbC5jb20iLCJ1c2VyTW9iaWxlIjoyNTg0MjU4NzQ1LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzM2ODA1NzU4LCJleHAiOjE3NjgzNjMzNTh9.D0X78gKX03KTQLGE3UYobC7-WX8qI0xr7uXpT6uBi14",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productName",
+							"value": "Dr martens 1460",
+							"type": "text"
+						},
+						{
+							"key": "productAddedBy",
+							"value": "67858c50e2b5443b1f2209d2",
+							"type": "text"
+						},
+						{
+							"key": "productCategory",
+							"value": "fashion",
+							"type": "text"
+						},
+						{
+							"key": "productSubCategory",
+							"value": "shoes",
+							"type": "text"
+						},
+						{
+							"key": "productPrice",
+							"value": "11500",
+							"type": "text"
+						},
+						{
+							"key": "productDescription",
+							"value": "Dr martens",
+							"type": "text"
+						},
+						{
+							"key": "productFor",
+							"value": "men",
+							"type": "text"
+						},
+						{
+							"key": "productImage",
+							"type": "file",
+							"src": "/C:/Users/Durodaex/Downloads/17362998_35824789_600.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/api/ecom/product/add-product",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"api",
+						"ecom",
+						"product",
+						"add-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg1OGM1MGUyYjU0NDNiMWYyMjA5ZDIiLCJ1c2VyRW1haWwiOiJhd2Fsa2VyQGhvdXNlcmVhbC5jb20iLCJ1c2VyTW9iaWxlIjoyNTg0MjU4NzQ1LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzM2ODA1NzU4LCJleHAiOjE3NjgzNjMzNTh9.D0X78gKX03KTQLGE3UYobC7-WX8qI0xr7uXpT6uBi14",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orders\": [\r\n        {\r\n            \"country\": \"United Kingdom\",\r\n            \"productOrderedId\": \"67859063e2b5443b1f220d1a\"\r\n        },\r\n        {\r\n            \"country\": \"United Kingdom\",\r\n            \"productOrderedId\": \"6701364cae2afd4c0b90113c\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/api/ecom/order/create-order",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"api",
+						"ecom",
+						"order",
+						"create-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewOrderDetails",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg1OGM1MGUyYjU0NDNiMWYyMjA5ZDIiLCJ1c2VyRW1haWwiOiJhd2Fsa2VyQGhvdXNlcmVhbC5jb20iLCJ1c2VyTW9iaWxlIjoyNTg0MjU4NzQ1LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzM2ODA1NzU4LCJleHAiOjE3NjgzNjMzNTh9.D0X78gKX03KTQLGE3UYobC7-WX8qI0xr7uXpT6uBi14",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=678591fce2b5443b1f220e5a",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"api",
+						"ecom",
+						"order",
+						"get-orders-details"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "678591fce2b5443b1f220e5a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg1OGM1MGUyYjU0NDNiMWYyMjA5ZDIiLCJ1c2VyRW1haWwiOiJhd2Fsa2VyQGhvdXNlcmVhbC5jb20iLCJ1c2VyTW9iaWxlIjoyNTg0MjU4NzQ1LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzM2ODA1NzU4LCJleHAiOjE3NjgzNjMzNTh9.D0X78gKX03KTQLGE3UYobC7-WX8qI0xr7uXpT6uBi14",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rahulshettyacademy.com/api/ecom/product/delete-product/67859063e2b5443b1f220d1a",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"api",
+						"ecom",
+						"product",
+						"delete-product",
+						"67859063e2b5443b1f220d1a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
