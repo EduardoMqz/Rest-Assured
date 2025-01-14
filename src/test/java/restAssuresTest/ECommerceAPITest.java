@@ -87,7 +87,7 @@ public class ECommerceAPITest {
 
         String message = configReader.rawToString(response, "message");
 
-        Assert.assertEquals("Product Deleted Successfully", message);
+        Assert.assertEquals(message,"Product Deleted Successfully");
     }
 
 }
