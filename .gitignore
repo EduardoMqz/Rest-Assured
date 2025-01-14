@@ -4,3 +4,5 @@ src/main/resources/attachment.jpg
 target/classes/attachment.jpg
 src/main/resources/oAuth2Api.json
 target/classes/oAuth2Api.json
+src/main/resources/boots.jpg
+target/classes/boots.jpg
