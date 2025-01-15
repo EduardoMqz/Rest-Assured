@@ -23,7 +23,7 @@ public class Places {
         .body("scope", equalTo("APP")).header("server", "Apache/2.4.52 (Ubuntu)").extract().response()
         .asString();
 
-          String placeId = configReader.rawToString(response, "place_id");
+        configReader.rawToString(response, "place_id");
 
     }
 }

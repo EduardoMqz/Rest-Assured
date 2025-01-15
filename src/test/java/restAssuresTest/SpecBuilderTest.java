@@ -1,18 +1,12 @@
 package restAssuresTest;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.requestSpecification;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.testng.annotations.Test;
-
-import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import pojoClasses.AddPlace;
@@ -45,7 +39,7 @@ public class SpecBuilderTest {
         ResponseSpecification responseAddPlace = new ResponseSpecBuilder().expectStatusCode(200)
             .expectContentType(ContentType.JSON).build();
 
-        Response respo = given().log().all().spec(requestAddPlace)
+        given().log().all().spec(requestAddPlace)
             .body(addPlace)
             .when().post("maps/api/place/add/json")
             .then().log().all().spec(responseAddPlace).extract().response();
