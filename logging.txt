@@ -1,0 +1,47 @@
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "location": {
+        "lat": -38.375494,
+        "lng": 33.42362
+    },
+    "accuracy": 50,
+    "name": "Allen Walker",
+    "phone_number": "(+92)983 893 3837)",
+    "address": "40, inner layout, cohe 10",
+    "types": [
+        "foot park",
+        "gun shop"
+    ],
+    "website": "http://google.com",
+    "language": "English-EN"
+}
+HTTP/1.1 200 OK
+Date: Fri, 17 Jan 2025 01:41:43 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "2c4a3440b3f669eee8ad3e15fdb49f6b",
+    "scope": "APP",
+    "reference": "22d3ca59435ddbe137d5e497028299fa22d3ca59435ddbe137d5e497028299fa",
+    "id": "22d3ca59435ddbe137d5e497028299fa"
+}

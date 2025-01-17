@@ -15,6 +15,8 @@ import resources.Utils;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+
 public class StepDefinition extends Utils {
 
     ReusableMethods configReader = new ReusableMethods();
@@ -24,16 +26,16 @@ public class StepDefinition extends Utils {
     TestDataBuild data = new TestDataBuild();
 
     @Given("Add Place Payload")
-    public void add_place_payload() {
-
-        responseAddPlace = new ResponseSpecBuilder().expectStatusCode(200)
-            .expectContentType(ContentType.JSON).build();
-
+    public void add_place_payload() throws IOException {
+        
         res = given().log().all().spec(requestSpecification()).body(data.addPlacePayload());
     }
 
     @When("user calls {string} API with Post http request")
     public void user_calls_api_with_post_http_request(String string) {
+
+        responseAddPlace = new ResponseSpecBuilder().expectStatusCode(200)
+            .expectContentType(ContentType.JSON).build();
 
         response = res.when().post("maps/api/place/add/json")
             .then().log().all().spec(responseAddPlace).extract().response();
