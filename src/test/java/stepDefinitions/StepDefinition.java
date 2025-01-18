@@ -14,7 +14,6 @@ import resources.TestDataBuild;
 import resources.Utils;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 
 public class StepDefinition extends Utils {
@@ -63,5 +62,14 @@ public class StepDefinition extends Utils {
     public void in_response_body_is(String keyValue, String value) {
         String textTocompare = configReader.rawToString(response.asString(), keyValue);
         assertEquals(value, textTocompare);
+    }
+
+    @Then("verify place_Id created maps to {string} using {string}")
+    public void verify_placeId(String keyValue, String value) throws IOException {
+        // preapre request sec
+        res = given().spec(requestSpecification()).queryParam("place_id",
+                configReader.rawToString(response.asString(), "place_id"));
+        user_calls_api_with_post_http_request(value, "Get");
+        assertEquals(keyValue, configReader.rawToString(response.asString(), "name"));
     }
 }

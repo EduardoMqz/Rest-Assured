@@ -16,24 +16,24 @@ public class Utils {
 
     public static RequestSpecification requestSpec;
 
-    public RequestSpecification requestSpecification() throws IOException{
+    public RequestSpecification requestSpecification() throws IOException {
 
-        if(requestSpec == null){
+        if (requestSpec == null) {
 
             PrintStream printStream = new PrintStream(new FileOutputStream("logging.txt"));
             requestSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
-                .addQueryParam("key", "qaclick123")
-                .addFilter(RequestLoggingFilter.logRequestTo(printStream))
-                .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
-                .setContentType(ContentType.JSON).build();
-    
+                    .addQueryParam("key", "qaclick123")
+                    .addFilter(RequestLoggingFilter.logRequestTo(printStream))
+                    .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
+                    .setContentType(ContentType.JSON).build();
+
             return requestSpec;
         }
 
         return requestSpec;
     }
 
-    public static String getGlobalValue(String property) throws IOException{
+    public static String getGlobalValue(String property) throws IOException {
         Properties properties = new Properties();
         FileInputStream fInputStream = new FileInputStream("src\\test\\java\\resources\\global.properties");
         properties.load(fInputStream);

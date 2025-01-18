@@ -27,7 +27,7 @@ Body:
     "language": "English-EN"
 }
 HTTP/1.1 200 OK
-Date: Sat, 18 Jan 2025 20:18:49 GMT
+Date: Sat, 18 Jan 2025 21:28:34 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -40,10 +40,48 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "373763955b63f7778aa220e7cfd829c4",
+    "place_id": "a8592603662c3da4c08939c272cc3489",
     "scope": "APP",
-    "reference": "e6b3c8596b08dfbc64d313b7e7670c1ce6b3c8596b08dfbc64d313b7e7670c1c",
-    "id": "e6b3c8596b08dfbc64d313b7e7670c1c"
+    "reference": "b6155cc81c76028b17ab748ab72dcd3eb6155cc81c76028b17ab748ab72dcd3e",
+    "id": "b6155cc81c76028b17ab748ab72dcd3e"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=a8592603662c3da4c08939c272cc3489
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=a8592603662c3da4c08939c272cc3489
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Sat, 18 Jan 2025 21:28:35 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 251
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-38.375494",
+        "longitude": "33.42362"
+    },
+    "accuracy": "50",
+    "name": "Allen Walker",
+    "phone_number": "(+92)983 893 3837)",
+    "address": "World Trade Center",
+    "types": "foot park,gun shop",
+    "website": "http://google.com",
+    "language": "English-EN"
 }
 Request method:	POST
 Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
@@ -74,7 +112,7 @@ Body:
     "language": "Japan-JP"
 }
 HTTP/1.1 200 OK
-Date: Sat, 18 Jan 2025 20:18:51 GMT
+Date: Sat, 18 Jan 2025 21:28:37 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -87,8 +125,46 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "bd189702a4a0058a3896b7d0e38bfbe5",
+    "place_id": "b41c55c30f67e48f501560841f7be2e2",
     "scope": "APP",
-    "reference": "84beaa5de9524aacd7a66bb764417d1084beaa5de9524aacd7a66bb764417d10",
-    "id": "84beaa5de9524aacd7a66bb764417d10"
+    "reference": "b8f559473a35186ef40f1cf9d2997201b8f559473a35186ef40f1cf9d2997201",
+    "id": "b8f559473a35186ef40f1cf9d2997201"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b41c55c30f67e48f501560841f7be2e2
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=b41c55c30f67e48f501560841f7be2e2
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Sat, 18 Jan 2025 21:28:38 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 237
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-38.375494",
+        "longitude": "33.42362"
+    },
+    "accuracy": "50",
+    "name": "Daruma",
+    "phone_number": "(+92)983 893 3837)",
+    "address": "Meiji Castle",
+    "types": "foot park,gun shop",
+    "website": "http://google.com",
+    "language": "Japan-JP"
 }
