@@ -13,16 +13,22 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public class Utils {
-    RequestSpecification requestSpec;
 
-    public RequestSpecification requestSpecification() throws IOException {
+    public static RequestSpecification requestSpec;
 
-        PrintStream printStream = new PrintStream(new FileOutputStream("logging.txt"));
-        requestSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
-            .addQueryParam("key", "qaclick123")
-            .addFilter(RequestLoggingFilter.logRequestTo(printStream))
-            .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
-            .setContentType(ContentType.JSON).build();
+    public RequestSpecification requestSpecification() throws IOException{
+
+        if(requestSpec == null){
+
+            PrintStream printStream = new PrintStream(new FileOutputStream("logging.txt"));
+            requestSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
+                .addQueryParam("key", "qaclick123")
+                .addFilter(RequestLoggingFilter.logRequestTo(printStream))
+                .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
+                .setContentType(ContentType.JSON).build();
+    
+            return requestSpec;
+        }
 
         return requestSpec;
     }
@@ -32,7 +38,6 @@ public class Utils {
         FileInputStream fInputStream = new FileInputStream("src\\test\\java\\resources\\global.properties");
         properties.load(fInputStream);
         return properties.getProperty(property);
-
     }
 
 }
