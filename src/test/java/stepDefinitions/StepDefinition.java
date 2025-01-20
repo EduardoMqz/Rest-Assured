@@ -22,6 +22,7 @@ public class StepDefinition extends Utils {
     ResponseSpecification responseAddPlace;
     Response response;
     TestDataBuild data = new TestDataBuild();
+    static String place_id;
 
     @Given("Add Place Payload with {string}, {string}, {string}")
     public void add_place_payload(String name, String language, String address) throws IOException {
@@ -66,10 +67,15 @@ public class StepDefinition extends Utils {
 
     @Then("verify place_Id created maps to {string} using {string}")
     public void verify_placeId(String keyValue, String value) throws IOException {
-        // preapre request sec
-        res = given().spec(requestSpecification()).queryParam("place_id",
-                configReader.rawToString(response.asString(), "place_id"));
+        place_id = configReader.rawToString(response.asString(), "place_id");
+        res = given().spec(requestSpecification()).queryParam("place_id", place_id);
         user_calls_api_with_post_http_request(value, "Get");
         assertEquals(keyValue, configReader.rawToString(response.asString(), "name"));
+    }
+
+    @Then("DeletePlaceAPI Payload")
+    public void deletePlacePayload() throws IOException {
+        // preapre request sec
+        res = given().spec(requestSpecification()).body(data.deletePlacePayload(place_id));
     }
 }

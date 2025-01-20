@@ -6,8 +6,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features="src\\test\\java\\features\\placeValidations.feature",
-    glue = {"stepDefinitions"})
+    features="src\\test\\java\\features",
+    glue = {"stepDefinitions"},
+    tags ="@DeletePlace")
 public class TestRunner {
 
 }
