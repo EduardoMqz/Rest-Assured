@@ -8,7 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
     features="src\\test\\java\\features",
     glue = {"stepDefinitions"},
-    tags ="@DeletePlace")
+    plugin = "json:target//jsonReports//cucumber-report.json")
+    //tags ="@DeletePlace")
 public class TestRunner {
 
 }
