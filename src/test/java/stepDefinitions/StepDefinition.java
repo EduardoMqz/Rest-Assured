@@ -75,7 +75,6 @@ public class StepDefinition extends Utils {
 
     @Then("DeletePlaceAPI Payload")
     public void deletePlacePayload() throws IOException {
-        // preapre request sec
         res = given().spec(requestSpecification()).body(data.deletePlacePayload(place_id));
     }
 }
