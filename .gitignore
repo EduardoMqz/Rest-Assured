@@ -6,3 +6,5 @@ src/main/resources/oAuth2Api.json
 target/classes/oAuth2Api.json
 src/test/java/resources/global.properties
 target/test-classes/resources/global.properties
+src/main/resources/OAuth.json
+target/classes/OAuth.json
