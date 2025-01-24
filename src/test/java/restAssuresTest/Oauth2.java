@@ -79,10 +79,12 @@ WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(200));
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys(configReader.get("password"));
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys(Keys.ENTER);
         Thread.sleep(5000);
-        String url = driver.getCurrentUrl();
+        String code = driver.getCurrentUrl();
+        code = code.split("code=")[1];
+        code = code.split("&scope")[0];
 
 
-        String accessToken = given().queryParams("code", "")
+        String accessToken = given().urlEncodingEnabled(false).queryParams("code", code)
                 .queryParams("client_id", configReader.get("client_id"))
                 .queryParams("client_secret", configReader.get("client_secret"))
                 .queryParams("redirect_uri", configReader.get("getResource"))
