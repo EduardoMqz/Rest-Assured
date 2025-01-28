@@ -7,6 +7,7 @@ import files.payload;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Library {
@@ -32,16 +33,18 @@ public class Library {
     @Test
     public void excelDriven() throws IOException {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("name", "RestAssured");
-        map.put("isbn", "gdvtres");
-        map.put("aisle", "8526");
-        map.put("author", "Rahul");
-        HashMap<String, Object> maplocation = new HashMap<>();
-        maplocation.put("lat", "1245");
-        maplocation.put("lng", "5421");
-        map.put("location", maplocation);
         ReusableMethods configReader = new ReusableMethods("excelDrivenLibrary");
         RestAssured.baseURI = configReader.get("baseURI");
+        dataDriven data = new dataDriven();
+        ArrayList arrayListData = data.getData(configReader.get("testName"));
+        map.put("name", arrayListData.get(1));
+        map.put("isbn", arrayListData.get(2));
+        map.put("aisle", arrayListData.get(3));
+        map.put("author", arrayListData.get(4));
+        /*HashMap<String, Object> maplocation = new HashMap<>();
+        maplocation.put("lat", "1245");
+        maplocation.put("lng", "5421");
+        map.put("location", maplocation);*/
         String response = given().header("Content-Type", "application/json")
             .body(map)
             .when().post(configReader.get("libraryResource"))
