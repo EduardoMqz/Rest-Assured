@@ -2,12 +2,16 @@ package restAssuresTest;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
+
 import files.ReusableMethods;
 
 public class dataDriven {
@@ -16,6 +20,13 @@ public class dataDriven {
 
     @Test
     public void excelTest() throws IOException {
+       ArrayList<String> data = getData(configReader.get("testCaseName"));
+       data.forEach(item -> System.out.println(item));
+
+    }
+
+    public ArrayList<String> getData(String testCaseName) throws IOException {
+        ArrayList<String> arrayList = new ArrayList<String>();
         FileInputStream fis = new FileInputStream(configReader.get("path"));
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
         int sheets = workbook.getNumberOfSheets();
@@ -34,16 +45,22 @@ public class dataDriven {
                     }
                     k++;
                 }
-                while(rows.hasNext()){
-                    Row row =rows.next();
-                    if(row.getCell(column).getStringCellValue().equalsIgnoreCase(configReader.get("value"))){
+                while (rows.hasNext()) {
+                    Row row = rows.next();
+                    if (row.getCell(column).getStringCellValue().equalsIgnoreCase(testCaseName)) {
                         Iterator<Cell> cv = row.cellIterator();
                         while (cv.hasNext()) {
-                            System.out.println(cv.next().getRichStringCellValue());  
+                            Cell c = cv.next();
+                            if (c.getCellType() == CellType.STRING) {
+                                arrayList.add(c.getStringCellValue());
+                            }else{
+                                arrayList.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+                            }  
                         }
                     }
                 }
             }
         }
+        return arrayList;
     }
 }
